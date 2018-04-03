@@ -1,0 +1,294 @@
+\documentclass[12pt]{article}
+%% arXiv paper template by Flip Tanedo
+%% last updated: Dec 2016
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  THE USUAL PACKAGES  %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{nopageno}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  UNUSUAL PACKAGES        %%%%
+%%%  Uncomment as necessary. %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% MATH AND PHYSICS SYMBOLS
+%% ------------------------
+%\usepackage{slashed}       % \slashed{k}
+%\usepackage{mathrsfs}      % Weinberg-esque letters
+%\usepackage{youngtab}	    % Young Tableaux
+%\usepackage{pifont}        % check marks
+%\usepackage{bbm}           % \mathbbm{1} incomp. w/ XeLaTeX 
+%\usepackage[normalem]{ulem} % for \sout
+
+
+%% CONTENT FORMAT AND DESIGN (below for general formatting)
+%% --------------------------------------------------------
+\usepackage{lipsum}        % block of text (formatting test)
+%\usepackage{color}         % \color{...}, colored text
+\usepackage{framed}        % boxed remarks
+%\usepackage{subcaption}    % subfigures; subfig depreciated
+%\usepackage{paralist}      % compactitem
+%\usepackage{appendix}      % subappendices
+%\usepackage{cite}          % group cites (conflict: collref)
+%\usepackage{tocloft}       % Table of Contents	
+
+%% TABLES IN LaTeX
+%% ---------------
+%\usepackage{booktabs}      % professional tables
+%\usepackage{nicefrac}      % fractions in tables,
+%\usepackage{multirow}      % multirow elements in a table
+%\usepackage{arydshln} 	    % dashed lines in arrays
+
+%% Other Packages and Notes
+%% ------------------------
+%\usepackage[font=small]{caption} % caption font is small
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  PAGE FORMATTING and (RE)NEW COMMANDS  %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[margin=2cm]{geometry}   % reasonable margins
+
+\graphicspath{{figures/}}	        % set directory for figures
+
+% for capitalized things
+\newcommand{\acro}[1]{\textsc{\MakeLowercase{#1}}}    
+
+\numberwithin{equation}{section}    % set equation numbering
+\renewcommand{\tilde}{\widetilde}   % tilde over characters
+\renewcommand{\vec}[1]{\mathbf{#1}} % vectors are boldface
+
+\newcommand{\dbar}{d\mkern-6mu\mathchar'26}    % for d/2pi
+\newcommand{\ket}[1]{\left|#1\right\rangle}    % <#1|
+\newcommand{\bra}[1]{\left\langle#1\right|}    % |#1>
+\newcommand{\Xmark}{\text{\sffamily X}}        % cross out
+
+% Change list spacing (instead of package paralist)
+% from: http://en.wikibooks.org/wiki/LaTeX/List_Structures#Line_spacing
+\let\oldenumerate\enumerate
+\renewcommand{\enumerate}{
+  \oldenumerate
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+\let\olditemize\itemize
+\renewcommand{\itemize}{
+  \olditemize
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}
+
+
+% Commands for temporary comments
+\newcommand{\comment}[2]{\textcolor{red}{[\textbf{#1} #2]}}
+\newcommand{\flip}[1]{{\color{red} [\textbf{Flip}: {#1}]}}
+\newcommand{\email}[1]{\texttt{\href{mailto:#1}{#1}}}
+
+\newenvironment{institutions}[1][2em]{\begin{list}{}{\setlength\leftmargin{#1}\setlength\rightmargin{#1}}\item[]}{\end{list}}
+
+
+\usepackage{fancyhdr}		% to put preprint number
+
+
+
+% Commands for listings package
+%\usepackage{listings}      % \begin{lstlisting}, for code
+%
+% \lstset{basicstyle=\ttfamily\footnotesize,breaklines=true}
+%    sets style to small true-type
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  TIKZ COMMANDS FOR EXTERNAL DIAGRAMS  %%%%
+%%%  requires -shell-escape               %%%%
+%%%  in texpad 1.7: prefs > shell esc sec %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% This is for exporting tikz figures as into a ./tikz/ subfolder.
+%% It is useful if you want pdf versions of the tikz diagrams or
+%% if you need to speed up compilation of a large document with
+%% many tikz diagrams.
+
+%\write18{} % Careful with this!
+%\usetikzlibrary{external}
+%\tikzexternalize[prefix=tikz/] % folder for external pdfs
+
+
+%%%%%%%%%%%%%%%%%%%
+%%%  HYPERREF  %%%%
+%%%%%%%%%%%%%%%%%%%
+
+%% This package has to be at the end; can lead to conflicts
+\usepackage{microtype}
+\usepackage[
+	colorlinks=true,
+	citecolor=black,
+	linkcolor=black,
+	urlcolor=green!50!black,
+	hypertexnames=false]{hyperref}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%  TITLE DATA  %%%%
+%%%%%%%%%%%%%%%%%%%%%
+
+%%% PREPRINT NUMBER USING fancyhdr
+%%% Don't forget to set \thispagestyle{firststyle}
+%%% ----------------------------------------------
+%\renewcommand{\headrulewidth}{0pt} % no separator
+%\fancypagestyle{firststyle}{
+%\rhead{\footnotesize \texttt{UCI-TR-2016-XX}}}
+
+
+
+\begin{document}
+
+%\thispagestyle{empty}
+%\thispagestyle{firststyle} %% to include preprint
+
+\begin{center}
+
+    {\Large \textsc{Physics 177:} \textbf{Computational Physics}}
+    
+\end{center}
+
+\vskip .4cm
+
+\noindent
+\begin{tabular*}{\textwidth}{rlcrll}
+	\textsc{Instructor:}& Prof.~Flip Tanedo
+	&
+	\hspace{.5cm}
+	&
+	\textsc{Lecture:}& TR & 5:10 -- 6:30pm
+	\\
+	\textsc{Contact:}& \email{flip.tanedo@ucr.edu} 
+	&
+	\hfill
+	&
+	\textsc{Room:} & Physics & 2104
+	\\
+	\textsc{Office:}& Physics 3054
+	&
+	\hfill
+	&
+	\textsc{Final:}
+	& 
+%	Sat 6/9 
+	Exam/interview
+	& 
+%	8:00 -- 11:00am 
+	To be confirmed
+	\\
+	\textsc{Office Hour:}& By appointment
+	&
+	\hfill
+	& 
+	&
+%	\emph{or}
+	&
+%	Interviews on finals week
+\end{tabular*}
+
+
+%\vspace{1.5em}
+%\noindent \textcolor{red}{\textbf{This syllabus is \emph{tentative} until the first day of class.}}
+
+\begin{framed}
+\noindent
+\textsc{Textbook} (required): \emph{Computational Physics} (\textsc{isbn} \texttt{978-1480145511}) by Mark Newman
+\\
+\textsc{Course webpage:} 
+\url{https://tanedo.github.io/Physics177-2018/}
+%\emph{to be updated soon}
+
+\noindent Lecture notes, homework, and additional reading will be posted there.	
+\end{framed}
+
+
+%\vspace{.5em}
+
+
+\section*{Official Course Description}
+
+\begin{quote}
+{\small
+\textsc{4 Units\footnote{UCR Senate Regulation 760 defines one unit as 3 hours of course work per week. Each week, this class has 3 hours of lecture, 1 hour of discussion, and expects 8 hours of your own time.}, Lecture 3, Laboratory 3}, Prerequisite(s): Prerequisite(s): CS 010 or CS 012 or CS 030; one of the following: PHYS 002C with a grade of B- or better, PHYS 040E with a grade of C- or better, PHYS 041C with a grade of C- or better; or consent of instructor.
+}
+\\
+\\
+Covers computer applications for solving problems in physical sciences. Addresses symbolic manipulation languages such as Mathematica, mathematical operations, plotting, and symbolic and numerical techniques in calculus. Includes numerical methods such as histogramming, the Monte-Carlo method for modeling experiments, statistical analysis, curve fitting, and numerical algorithms.
+\end{quote}
+
+\noindent\textbf{Remark}: we will \emph{not} be using the computer labs. You will work on your own computers using modern tools to collaborate digitally.
+
+\section*{Unofficial (Effective) Course Description}
+
+If you are taking this class, you already have a solid grasp of `pen and paper' physics. Modern physics, however, often requires tools beyond `pen and paper' in two ways:
+\begin{enumerate}
+	\item Large data sets may require sophisticated processing and analysis.
+	\item Intractable calculations, for example nonlinear systems or high-dimensional phase spaces, may require brute force numerical evaluation.
+\end{enumerate}
+This is a crash course in using computers to do physics. It is neither a computer science course on algorithms nor a data-based lab course, but it is somewhere in between. 
+
+
+
+
+\subsection*{Programming Language}
+
+All examples and assignments will be in \textbf{Python} in the specific context of a \textbf{Jupyter} (iPython) notebook. We will use \textbf{GitHub} to submit code and \textbf{Gitter} to communicate outside of class.
+%
+Students are expected to be familiar with Python and to familiarize themselves with Jupyter at the beginning of the course: you are free to use any resources or references for writing code\footnote{This includes online forums like Stack Exchange and other students in the class.}, but we will not spend much time on reviewing Python or debugging individual code. Instead, we will focus on understanding and implementing algorithms.
+
+
+\section*{Evaluation and course policies}
+
+You will be evaluated on the following criteria:
+\begin{itemize}
+	\item Weekly homework assignments. (35\%)
+	\item Brief in-class assessments. (20\%)
+	\item A mid-term oral presentation. (10\%)
+	\item Final Exam: (35\%) \begin{itemize}
+		\item 	In-class project presentation: Saturday, June 9 at 8:00am. 
+			\\ \emph{or}
+		\item  One-on-one interviews during finals week.
+			\end{itemize}
+\end{itemize}
+Homework assignments may include extra credit components. Presentations and interviews are designed test that you understand and wrote your own code. Final exam arrangements will be decided collectively midway through the quarter. 
+
+\vspace{1em}
+\noindent\textbf{Physics Hackathon}: depending outside variables, we may do a small Physics Hackathon this year. Participation is voluntary but will be counted as extra credit.
+
+
+\subsection*{Policies}
+
+Part of your grade is be based on in-class participation. You responsible for the material that you miss if you are absent. For advance notice and valid emergencies, we can arrange to make up in-class work. 
+
+I suggest that you collaborate with other students on assignments. You are responsible for writing up your own homework independently and submitting your own code to GitHub.
+
+\vspace{1em}
+\noindent You must abide by the \href{http://conduct.ucr.edu/policies/academicintegrity.html}{UCR academic integrity policies}.
+
+
+\section*{Topics}
+
+The main topic of this course are: numerical approximations and errors, basic algorithms for integration and differential equations, and random numbers in computational physics. If time permits, we may explore more advanced topics such as machine learning.
+
+\end{document}
