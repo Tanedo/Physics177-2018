@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Physics 177: Computational Physics
 
 You can use the [editor on GitHub](https://github.com/Tanedo/Physics177-2018/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
