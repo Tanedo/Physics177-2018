@@ -5,7 +5,7 @@
 [Course webpage](https://tanedo.github.io/Physics177-2018/)  
 [Syllabus](https://github.com/Tanedo/Physics177-2018/blob/master/Syllabus/P177_S2018_Syllabus.pdf)
 
-If you are taking this class, you already have a solid grasp of `pen and paper' physics. Modern physics, however, often requires tools beyond `pen and paper' in two ways:
+If you are taking this class, you already have a solid grasp of 'pen and paper' physics. Modern physics, however, often requires tools beyond 'pen and paper' in two ways:
 1. Large data sets that can require sophisticated processing and analysis.  
 2. Intractable calculations, for example nonlinear systems or high-dimensional phase spaces.  
 
